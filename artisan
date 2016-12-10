@@ -1,0 +1,68 @@
+<?php
+header("Content-type: text/html; charset=utf-8");    
+
+// $argv=array('artisan','make','controller','Admin','User555');
+
+$cmd=New Console($argv);
+
+class Console
+{
+
+	/**
+	 * [__construct 初始化]
+	 * @param [array] $argv [控制台的参数]
+	 */
+	function __construct($argv)
+	{
+		$cmd = self::cmd($argv);
+		count($cmd)>0 && self::switchCmd($cmd);
+		if( count($cmd)<=0 ){
+			echo " Controller : php artisan make controller Admin Index \n";
+			echo " Model : php artisan make model Admin Index \n";			
+		}
+		echo "\n";
+		// print_r($cmd);
+	}
+
+
+	/**
+	 * [cmd 获取控制台的命令]
+	 * @param  [array] $argv [控制台的参数]
+	 * @return [array]       [命令的结果集]
+	 */
+	public static function cmd($argv)
+	{
+		unset($argv[0]);
+		$argv = array_values($argv);	
+		echo "---------------------------[ Welcome to Console ]------------------------------\n";
+		return $argv;
+	}
+
+	/**
+	 * [switchCmd 判断命令第一个参数]
+	 * @param  [array] $cmd [命令的结果集]
+	 * @return [type]      [description]
+	 */
+	public static function switchCmd($cmd)
+	{
+		switch ($cmd[0]) {
+			case 'make':
+					echo "[#action#]:   make";
+					require './Console/Make.php';
+					new Make($cmd);
+				break;
+			case '-v':
+					echo "[ version ]:   1.0\n";
+					echo "[ author  ]:   bool\n";
+					echo "[  time   ]:   2016-11-17 16:30\n";
+					echo "[   QQ    ]:   30024167";
+				break;			
+			default:
+					echo " Controller : php artisan make controller Admin Index \n";
+					echo " Model : php artisan make model Admin Index \n";
+				break;
+		}		
+	}
+
+
+}
