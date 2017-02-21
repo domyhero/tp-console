@@ -23,4 +23,5 @@
 
 #其他
 >php think -h
+
 >php think -v
