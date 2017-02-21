@@ -18,7 +18,7 @@ class Console
 		count($cmd)>0 && self::switchCmd($cmd);
 		if( count($cmd)<=0 ){
 			echo " Controller : php artisan make controller Admin Index \n";
-			echo " Model : php artisan make model Admin Index \n";			
+			echo " Model      : php artisan make model      Admin Index \n";			
 		}
 		echo "\n";
 		// print_r($cmd);
@@ -55,11 +55,17 @@ class Console
 					echo "[ version ]:   1.0\n";
 					echo "[ author  ]:   bool\n";
 					echo "[  time   ]:   2016-11-17 16:30\n";
-					echo "[   QQ    ]:   30024167";
+				break;	
+			case '-h':
+					echo "[ version ]:   1.0\n";
+					echo "[ author  ]:   bool\n";
+					echo "[  time   ]:   2016-11-17 16:30\n";
+					echo "[   QQ    ]:   30024167\n";
+					echo '[  github ]:   https://github.com/bool1993/tp-console';
 				break;			
 			default:
 					echo " Controller : php artisan make controller Admin Index \n";
-					echo " Model : php artisan make model Admin Index \n";
+					echo " Model      : php artisan make model      Admin Index \n";
 				break;
 		}		
 	}
