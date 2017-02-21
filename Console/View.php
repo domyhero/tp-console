@@ -3,50 +3,35 @@
 class View
 {
 
-	/**
-	 * [makeModel 判断第命令第三、四个参数个参数]
-	 * @param  [array] $cmd [命令的结果集]
-	 * @return [type]      [description]
-	 */
-	public static function makeModel($cmd)
+	public static function makeView($cmd)
 	{
-		unset($cmd[0]);
-		$cmd=array_values($cmd);
-		$module=$cmd[0];
-		$model=$cmd[1];
-		self::writeModel($module,$model);		
+		self::writeView($cmd[0]);		
 	}
 
 
-	public static function writeModel($module,$model)
+	public static function writeView($module)
 	{
-		$name=$model.'Model.class.php';
+		$temp=explode('/',$module);
+		$module=ucfirst($temp[0]);
+		$controller=ucfirst($temp[1]);	
+		$view=ucfirst($temp[2]);	
+		$name=$view.'.html';
 
-		$tpl =
-<<<EOT
- <!DOCTYPE html>
- <html lang="en">
- <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
- </head>
- <body>
-    
- </body>
- </html>
-EOT;
 
-	$config=require 'Config.php';
-	$tpls=sprintf($tpl,$module,$model.$config['DEFAULT_V_LAYER']);
-	$path=$config['APP_PATH'].$module.'/Model/'.$name;
-	$dir=$config['APP_PATH'].$module.'/Model';
+		$tpl =file_get_contents(__DIR__.'/tpl/view.tpl');
+		$config=require 'Config.php';
+		$tpls=sprintf($tpl,$view,$view);
+		$path=$config['APP_PATH'].$module.'/'.$config['DEFAULT_V_LAYER'].'/'.$controller.'/'.$name;
+		$dir=$config['APP_PATH'].$module.'/'.$config['DEFAULT_V_LAYER'].'/'.$controller;
+
+
 
 		//判断文件是否存在
 		if(is_file($path) ){
-			die('Model file is exists');
+			die('View file is exists');
 		}else{
-			file_exists( $dir ) ||  mkdir($dir,0777,true);
-			file_put_contents($path, $tpls) && die('Model create success!');
+			file_exists( $dir ) ||  mkdir($dir,0755,true);
+			file_put_contents($path, $tpls) && die('View create success!');
 
 		}
 		

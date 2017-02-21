@@ -18,27 +18,41 @@ class Make
 	 */
 	public function make($cmd)
 	{
+		$tempCmd=$cmd[0];
 		unset($cmd[0]);
 		$cmd=array_values($cmd) ;
-		// print_r($cmd);
 
-		switch ($cmd[0]) {
-			case 'controller':
-					echo " controller \n[#message#]:  ";
+		switch ( $tempCmd ) {
+			case 'make:controller':
+					echo " [controller] \n[#message#]:  ";
 					require 'Controller.php';
 					$Controller=new Controller();
 					$Controller->makeController($cmd);
 				break;
-			case 'model':
-					echo " model \n[#message#]:  ";
+			case 'make:model':
+					echo " [model] \n[#message#]:  ";
 					require 'Model.php';
 					$Model=new Model();
 					$Model->makeModel($cmd);
-				break;			
+				break;	
+			case 'make:view':
+					echo " [view] \n[#message#]:  ";
+					require 'View.php';
+					$Model=new View();
+					$Model->makeView($cmd);
+				break;	
+			case 'make:widget':
+					echo " [widget] \n[#message#]:  ";
+					require 'Widget.php';
+					$Model=new Widget();
+					$Model->makeWidget($cmd);
+				break;	
 			default:
 					echo "sorry! is error\n";
 				break;
-		}		
+		}	
+
+
 	}
 
 
