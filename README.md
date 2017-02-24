@@ -7,19 +7,19 @@
 
 ## 简单使用
  
- 在Admin模块下创建一个为Index的控制器
+ [控制器] 在Admin模块下创建一个为Index的控制器
 >php think make:controller Admin/Index
 
 
- 在Admin模块下创建一个为Index的模型
+ [模型] 在Admin模块下创建一个为Index的模型
 >php think make:model Admin/Index		
 
 
- 在Admin模块下创建一个为Index控制器下的info页面
+ [视图] 在Admin模块下创建一个为Index控制器下的info页面
 >php think make:view Admin/Index/info 
 
 
- 在Admin模块下创建一个为info组件
+ [组件] 在Admin模块下创建一个为info组件
 >php think make:widget Admin/info 
 
 
