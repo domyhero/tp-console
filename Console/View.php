@@ -14,7 +14,7 @@ class View
 		$temp=explode('/',$module);
 		$module=ucfirst($temp[0]);
 		$controller=ucfirst($temp[1]);	
-		$view=ucfirst($temp[2]);	
+		$view=$temp[2];	
 		$name=$view.'.html';
 
 
