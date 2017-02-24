@@ -28,7 +28,7 @@ class %s extends Controller {
     /**
      * [edit 编辑]
      */
-    public function edit(\$id){
+    public function edit($id){
         if(IS_POST){
             $model=D('Node');
             $data=I('post.');
