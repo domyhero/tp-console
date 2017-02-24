@@ -8,19 +8,19 @@
 ## 简单使用
  
  在Admin模块下创建一个为Index的控制器
->Controller : php think make:controller Admin/Index
+>php think make:controller Admin/Index
 
 
  在Admin模块下创建一个为Index的模型
->Model      : php think make:model Admin/Index		
+>php think make:model Admin/Index		
 
 
  在Admin模块下创建一个为Index控制器下的info页面
->View       : php think make:view Admin/Index/info 
+>php think make:view Admin/Index/info 
 
 
  在Admin模块下创建一个为info组件
->Widget     : php think make:widget Admin/info 
+>php think make:widget Admin/info 
 
 
 #配置
@@ -30,6 +30,8 @@
 
 #其他
 
+帮助
 >php think -h
 
+版本
 >php think -v
