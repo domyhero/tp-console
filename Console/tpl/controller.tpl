@@ -4,8 +4,14 @@ use Think\Controller;
 
 class %s extends Controller {
 
+    private $slideModel;
+    function __construct(){
+        parent::__construct();
+        $this->slideModel=D('Slide');
+    }
+
     public function index(){
-        $this->show('Welcome to Console!');
+        $this->display();
     }
 
    /**
@@ -13,7 +19,7 @@ class %s extends Controller {
      */
     public function add(){
         if(IS_POST){
-            $model=D('Node');
+            $model=$this->slideModel;
             $data=I('post.');
             if( $model->create($data,1) ){
                 if($model->add($data)){
@@ -30,10 +36,12 @@ class %s extends Controller {
      */
     public function edit($id){
         if(IS_POST){
-            $model=D('Node');
+            $model=$this->slideModel;
             $data=I('post.');
             if( $model->create($data,2) ){
                 if($model->save($data)){
+                    $this->success('修改成功！',U('Node/index')) && exit();
+                }else{
                     $this->success('修改成功！',U('Node/index')) && exit();
                 }
             }else{
@@ -49,7 +57,8 @@ class %s extends Controller {
      * @return [type]     [description]
      */
     public function del($id){  
-        if( D('Node')->delete($id) ){
+        $model=$this->slideModel;
+        if( $model->delete($id) ){
             $this->success('删除成功！',U('Node/index')) && exit();
         }else{
             $this->error('删除失败！');

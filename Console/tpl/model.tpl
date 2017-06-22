@@ -83,4 +83,35 @@ class %sModel extends Model {
                  
     }
 
+    //获取列表
+    public function getList(){
+        $where=array();
+        //I('get.id') && $where['id']=I('get.id');
+
+        // 进行分页数据查询
+        $res = $this->field('*')
+                    ->where($where)
+                    ->order('sort_id asc')
+                    ->select();
+        return array(
+            'list' => $res,
+        );
+                 
+    }
+
+    //获取单条
+    public function getOne(){
+        $where=array();
+        I('get.id') && $where['id']=I('get.id');
+
+        // 进行分页数据查询
+       return $this->field('*')
+                    ->where($where)
+                    ->order('sort_id asc')
+                    ->find();
+                 
+    }
+
+
+
 }
