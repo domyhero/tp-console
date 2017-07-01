@@ -35,3 +35,10 @@
 
 版本
 >php think -v
+
+
+<img class="BDE_Image" pic_type="0" width="560" height="381" src="http://imgsrc.baidu.com/forum/w%3D580/sign=f100cbb3454a20a4311e3ccfa0539847/930bb31bb051f819340e90ebd0b44aed2e73e706.jpg" style="cursor: url(&quot;http://tb2.bdstatic.com/tb/static-pb/img/cur_zin.cur&quot;), pointer;">
+
+
+<img class="BDE_Image" pic_type="0" width="560" height="160" src="http://imgsrc.baidu.com/forum/w%3D580/sign=71f707d5a7345982c58ae59a3cf5310b/a3ee90529822720eead9715b71cb0a46f21fab12.jpg" style="cursor: url(&quot;http://tb2.bdstatic.com/tb/static-pb/img/cur_zin.cur&quot;), pointer;">
+
